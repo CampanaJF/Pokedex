@@ -1,7 +1,15 @@
-.poke-logo{
-    width: 5%;
-    min-width: 70px;
+
+* {
+    margin: 0;
+    padding: 0;
+
 }
+
+.poke-logo{
+    width: 50px;
+    min-width:50px;
+}
+
 
 .titulo{
     font-size: 1.5em;
@@ -21,4 +29,27 @@
 
 .footer-header-color{
     background-color:#191919;
+}
+
+.navbar{
+    background-color: orangered;
+
+}
+
+.imputestilo{
+    padding: 5px;
+    margin-left: 5px;
+}
+
+.contenedortabla{
+    max-width: 800px;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+table{
+    background-color: white;
+    opacity: 80% ;
+;
 }
