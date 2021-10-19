@@ -3,8 +3,8 @@
 class MyDatabase{
     private $connection;
 
-    public function __construct($servername, $username, $password, $dbname){
-        $this->connection = mysqli_connect($servername, $username,$password, $dbname);
+    public function __construct($servername, $username, $password, $dbname,$port){
+        $this->connection = mysqli_connect($servername, $username,$password, $dbname, $port);
 
         if (!$this->connection) {
             die("Connection failed: " . mysqli_connect_error());
