@@ -1,0 +1,29 @@
+drop database if exists pokedex;
+create database pokedex;
+use pokedex;
+
+create table pokemon(
+id int auto_increment primary key,
+numero int,
+nombre varchar(20),
+tipo1 varchar(20),
+tipo2 varchar(20),
+descripcion text,
+img varchar(20)
+);
+
+drop table pokemon;
+create table usuario(
+id int auto_increment primary key,
+nombre varchar (20),
+contraseña varchar (40),
+esAdmin int
+);
+
+insert into usuario (nombre,contraseña,esAdmin)
+			 values("admin","admin",1);
+             
+insert into pokemon (numero,nombre,tipo1,tipo2,descripcion,img)
+              values(094,"Gengar","Tipo_veneno.jepg","Tipo_fantasma.jpeg",
+              "Gengar es un Pokémon de tipo fantasma/veneno introducido en la primera generación. Es la evolución de Haunter y,
+              a partir de la sexta generación, puede megaevolucionar en Mega-Gengar. ","Gengar.jpeg");

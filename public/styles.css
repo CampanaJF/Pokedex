@@ -1,0 +1,24 @@
+.poke-logo{
+    width: 5%;
+    min-width: 70px;
+}
+
+.titulo{
+    font-size: 1.5em;
+    padding: 1em;
+}
+
+.contenido-principal{
+    background-image: url(/public/background_2.jpg);
+    background-repeat: repeat-x;
+    background-repeat: repeat-y;
+    
+}
+
+.separador{
+    padding-bottom: 264px;
+}
+
+.footer-header-color{
+    background-color:#191919;
+}
