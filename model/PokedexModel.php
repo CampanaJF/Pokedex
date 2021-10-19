@@ -8,7 +8,7 @@ class PokedexModel {
     }
 
     public function getPokemons() {
-        $query = "SELECT nombre, tipo1, tipo2, numero FROM pokemon";
+        $query = "SELECT nombre, tipo1, tipo2, numero FROM pokemon ORDER BY numero";
 
         return $this->database->query($query);
     }
