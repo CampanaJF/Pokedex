@@ -13,8 +13,8 @@
 
         {{# error}}
             <div class="w3-panel w3-red">
-                <h3>Danger!</h3>
-                <p>Red often indicates a dangerous or negative situation.</p>
+                <h3>Error!</h3>
+                <p>no se encontro ningun pokemon</p>
             </div>
         {{/ error}}
 
@@ -31,13 +31,19 @@
                 {{# pokemons}}
                 <tr>
                     <td>{{numero}}</td>
-                    <td>{{nombre}}</td>
+                    <td><a href="/pokedex/descripcion?id={{id}}">{{nombre}}</a></td>
                     <td><img src="/public/tipos/{{tipo1}}.jpeg" alt="{{tipo1}}"></td>
                     <td><img src="/public/tipos/{{tipo2}}.jpeg" alt="{{tipo2}}"></td>
                 </tr>
                 {{/ pokemons}}
             </table>
         </div>
+        <br>
+
+        <div class="w3-container">
+            <a href="/pokedex/nuevo" class="w3-button w3-orange">Nuevo pokemon</a>
+        </div>
+
 
         <div class="separador" >
 

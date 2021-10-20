@@ -3,20 +3,6 @@ class Configuration{
 
     private $config;
 
-    public  function createPresentacionesController(){
-        require_once("controller/PresentacionesController.php");
-        return new PresentacionesController( $this->createPresentacionesModel() , $this->createPrinter());
-    }
-
-    public  function createCancionesController(){
-        require_once("controller/CancionesController.php");
-        return new CancionesController( $this->createCancionesModel(), $this->getLogger() , $this->createPrinter());
-    }
-
-    public function createQuieroSerParteController(){
-        require_once("controller/QuieroSerParteController.php");
-        return new QuieroSerParteController( $this->createPrinter());
-    }
 
     public function createPokedexController() {
         require_once "controller/PokedexController.php";
@@ -28,17 +14,6 @@ class Configuration{
         return new PokedexModel($this->getDatabase());
     }
 
-    private  function createCancionesModel(){
-        require_once("model/CancionesModel.php");
-        $database = $this->getDatabase();
-        return new CancionesModel($database);
-    }
-
-    private  function createPresentacionesModel(){
-        require_once("model/PresentacionesModel.php");
-        $database = $this->getDatabase();
-        return new PresentacionesModel($database);
-    }
 
     private  function getDatabase(){
         require_once("helpers/MyDatabase.php");

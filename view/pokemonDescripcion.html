@@ -1,0 +1,20 @@
+{{> header}}
+
+<main>
+
+    <div>
+        {{#pokemons}}
+        <h2>{{nombre}}</h2>
+        <p>numero de pokemon : {{numero}}</p>
+        <img src="/public/tipos/{{tipo1}}.jpeg" alt="{{tipo1}}">
+        <img src="/public/tipos/{{tipo2}}.jpeg" alt="{{tipo2}}">
+        <p>{{descripcion}}</p>
+        <img src="/public/img/{{imagen}}" alt="no se pudo mostrar la imagen">
+        {{/pokemons}}
+    </div>
+
+
+</main>
+
+
+{{> footer}}
