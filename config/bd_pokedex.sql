@@ -24,7 +24,7 @@ insert into usuario (nombre,contraseña,esAdmin)
 			 values("admin","admin",1);
              
 insert into pokemon (numero,nombre,tipo1,tipo2,descripcion,img)
-              values(094,"Gengar","Tipo_veneno","Tipo_fantasma.",
+              values(094,"Gengar","Tipo_veneno.jepg","Tipo_fantasma.jpeg",
               "Gengar es un Pokémon de tipo fantasma/veneno introducido en la primera generación. Es la evolución de Haunter y,
               a partir de la sexta generación, puede megaevolucionar en Mega-Gengar. ","Gengar.jpeg");
 
