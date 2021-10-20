@@ -11,18 +11,15 @@ class PokedexController{
     }
 
     public function show() {
-        $data["pokemons"] = $this->model->getPokemons();
+        $data = $this->model->getPokemons();
 
-        /*foreach ($respond as $r) {
-            $a = [
-                "numero" => $r["numero"],
-                "nombre" => $r["nombre"],
-                "tipo1" => $r["tipo1"],
-                "tipo2" => $r["tipo2"],
-            ];
+        echo $this->printer->render( "view/pokedexView.html", $data);
+    }
 
-            array_push($data, $a);
-        }*/
+    public function search() {
+        $search = $_POST["search"] ?? "";
+
+        $data = $this->model->search($search);
 
         echo $this->printer->render( "view/pokedexView.html", $data);
     }

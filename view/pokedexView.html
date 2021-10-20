@@ -5,11 +5,18 @@
     <div class="w3-container w3-content w3-center w3-padding-64">
 
         <h2 class="w3-wide w3-tag">Buscar</h2>
-        <form>
-            <input type="search" placeholder="Pikachu">
+        <form action="/pokemon/search" method="post">
+            <input type="search" name="search" placeholder="Pikachu">
             <input type="submit" value="Buscar">
         </form>
         <p class=" w3-tag"><i>Catch them all!</i></p>
+
+        {{# error}}
+            <div class="w3-panel w3-red">
+                <h3>Danger!</h3>
+                <p>Red often indicates a dangerous or negative situation.</p>
+            </div>
+        {{/ error}}
 
         <div class="w3-container">
             <h2>Lista de Pokemones</h2>
@@ -25,14 +32,16 @@
                 <tr>
                     <td>{{numero}}</td>
                     <td>{{nombre}}</td>
-                    <td><img src="/public/tipos/{{tipo1}}" alt="{{tipo1}}"></td>
-                    <td><img src="/public/tipos/{{tipo2}}" alt="{{tipo2}}"></td>
+                    <td><img src="/public/tipos/{{tipo1}}.jpeg" alt="{{tipo1}}"></td>
+                    <td><img src="/public/tipos/{{tipo2}}.jpeg" alt="{{tipo2}}"></td>
                 </tr>
                 {{/ pokemons}}
             </table>
         </div>
 
-        <div class="separador" ></div>
+        <div class="separador" >
+
+        </div>
 
     </div>
 
