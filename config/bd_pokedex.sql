@@ -12,7 +12,9 @@ descripcion text,
 img varchar(20)
 );
 
-drop table pokemon;
+-- drop table pokemon;
+ drop table usuario;
+
 create table usuario(
 id int auto_increment primary key,
 nombre varchar (20),
@@ -21,8 +23,9 @@ esAdmin int
 );
 
 insert into usuario (nombre,contraseña,esAdmin)
-			 values("admin","admin",1);
+			 values("admin",md5("admin"),1);
              
+
 insert into pokemon (numero,nombre,tipo1,tipo2,descripcion,img)
               values(094,"Gengar","Tipo_veneno","Tipo_fantasma",
               "Gengar es un Pokémon de tipo fantasma/veneno introducido en la primera generación. Es la evolución de Haunter y,

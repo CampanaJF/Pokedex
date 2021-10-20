@@ -3,6 +3,17 @@ class Configuration{
 
     private $config;
 
+    private function createLoginModel(){
+        require_once "model/LoginModel.php";
+        $database = $this->getDatabase();
+        return new LoginModel($database);
+    }
+
+    public function createLoginController(){
+        require_once "controller/LoginController.php";
+        return new LoginController($this->createPrinter(),$this->createLoginModel(), );
+    }
+
     public  function createPresentacionesController(){
         require_once("controller/PresentacionesController.php");
         return new PresentacionesController( $this->createPresentacionesModel() , $this->createPrinter());
