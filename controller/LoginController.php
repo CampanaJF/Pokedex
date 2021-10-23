@@ -25,6 +25,7 @@ class LoginController {
             $hash = $result[0]["hash"];
 
             if ($hash == null) {
+                $_SESSION['role']=1;
                 header("Location: /pokedexView");
             } 
         } else {

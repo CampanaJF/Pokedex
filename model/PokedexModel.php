@@ -77,4 +77,14 @@ class PokedexModel {
 
         return !empty($this->database->query($query));
     }
+
+    public function loginCheck(){
+        
+        if (isset($_SESSION['role'])&& $_SESSION['role']==1) {
+            $data["logged"] = true;  
+        } else {
+            $data["notLogged"] = true;
+        }
+        return $data;
+    }
 }

@@ -22,12 +22,15 @@ create table pokemon(
     FOREIGN KEY (tipo2) REFERENCES tipo(id)
 );
 
+drop table if exists usuario;
 create table usuario(
     id int auto_increment primary key,
     nombre varchar (20),
     contraseña varchar (40),
     esAdmin int
 );
+
+
 
 INSERT INTO tipo (tipo, imagen)
     VALUES ('acero', 'acero.jpeg'), -- 1
@@ -70,13 +73,13 @@ values(006,'Charizard', 7, 17,
        'Charizard es un Pokémon de tipo fuego/volador, introducido en la primera generación. Es la evolución de Charmeleon y, a partir de la sexta generación, puede megaevolucionar en Mega-Charizard X o en Mega-Charizard Y. En la Octava generación puede realizar Gigamax y transformarse en Charizard Gigamax.');
 
 insert into pokemon (numero,nombre,tipo1,tipo2,descripcion)
-values(018,'pidgeot', 11, 17,
+values(018,'Pidgeot', 11, 17,
        'Pidgeot es un Pokémon del tipo normal/volador introducido en la primera generación. Es la forma evolucionada de Pidgeotto. A partir de Pokémon Rubí Omega y Pokémon Zafiro Alfa puede megaevolucionar en Mega-Pidgeot.');
 
 insert into pokemon (numero,nombre,tipo1,tipo2,descripcion)
-values(149,'dragonite', 4, 17,
+values(149,'Dragonite', 4, 17,
        'Dragonite es un Pokémon de tipo dragón/volador introducido en la primera generación. Es la evolución de Dragonair.');
 
 insert into pokemon (numero,nombre,tipo1,tipo2,descripcion)
-values(103,'exeggutor', 12, 13,
+values(103,'Exeggutor', 12, 13,
        'Exeggutor es un Pokémon de tipo planta/psíquico introducido en la primera generación. Es la forma habitual del Exeggutor de Alola. En ambas variantes, es la evolución de Exeggcute.');

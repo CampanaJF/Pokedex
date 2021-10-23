@@ -1,22 +1,27 @@
 {{> header}}
 
-<main class="w3-container w3-white">
+<main class="w3-container w3-sand">
     {{#pokemons}}
-    <h2>{{nombre}}</h2>
-    <div class="w3-center w3-margin-top w3-margin-bottom">
+    <div class="w3-container w3-sand w3-cell pokemon-display-descripcion"> 
+        <h2>{{nombre}}</h2>
+        <p class="w3-margin-top ">{{descripcion}}</p>
+    </div>
+    <div class="w3-center w3-margin-top w3-margin-bottom w3-cell">
         <div class="w3-card" style="width: 30em">
-            <img src="/public/img/{{imagen}}" alt="no se pudo mostrar la imagen" style="width: 30em">
-            <div class="w3-padding">
-                <p>Número de pokemon : {{numero}}</p>
+            <img src="/public/img/{{imagen}}" alt="no se pudo mostrar la imagen" class="w3-white pokemon-display">
+            <div class="w3-padding w3-red">
+                <h3>{{nombre}}</h3>
+                <p>Número : {{numero}}</p>
                 <img src="/public/tipos/{{tipo1}}" alt="{{tipo1}}">
-                <img src="/public/tipos/{{tipo2}}" alt="{{tipo2}}">
-                <p class="w3-margin-top">{{descripcion}}</p>
+                <img src="/public/tipos/{{tipo2}}" alt="{{tipo2}}">        
             </div>
         </div>
     </div>
     {{/pokemons}}
 
 </main>
+
+
 
 
 {{> footer}}

@@ -22,6 +22,20 @@
 
     <a href="/pokedex"> <img class="poke-logo w3-center" src="/public/pokeball-logo.png" > </a>
     <span class="titulo w3-text-white">Pokedex Primera Generacion</span>
-    <a class="w3-right" href="/login" class="nav-link">Login</a>
+
+     {{# logged}}
+            <a class="w3-padding w3-right w3-text-white" href="/helpers/logout.php" class="nav-link">Logout</a>
+            <!--  <div class="w3-panel w3-red">
+                <h3>Loggeado</h3>
+            </div> -->
+     {{/ logged}}
+
+     {{# notLogged}}
+            <a class="w3-padding w3-right w3-text-white" href="/login" class="nav-link">Login</a>
+            <!--  <div class="w3-panel w3-red">
+                <h3>No Loggeado</h3> 
+            </div> -->
+     {{/ notLogged}}
+            
 
 </div>

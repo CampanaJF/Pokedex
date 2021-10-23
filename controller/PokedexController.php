@@ -12,6 +12,7 @@ class PokedexController{
 
     public function show() {
         $data = $this->model->getPokemons();
+        $data = array_merge($data,$this->model->loginCheck());
 
         echo $this->printer->render( "view/pokedexView.html", $data);
     }

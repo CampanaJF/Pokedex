@@ -21,7 +21,7 @@
         {{/ error}}
 
         <div class="w3-container">
-            <h2 class="w3-text-white w3-black w3-padding">Lista de Pokemones</h2>
+            <h2 class="w3-text-white w3-black w3-padding w3-tag">Lista de Pokemones</h2>
 
             <table class="w3-table">
                 <tr>
@@ -42,10 +42,11 @@
         </div>
         <br>
 
+        {{#logged}}
         <div class="w3-container">
-            <a href="/pokedex/nuevo" class="w3-button w3-orange">Nuevo pokemon</a>
+            <a href="/pokedex/nuevo" class="w3-button w3-red">Nuevo pokemon</a>
         </div>
-
+        {{/logged}}
 
         <div class="separador" >
 

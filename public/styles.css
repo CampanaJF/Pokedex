@@ -9,6 +9,14 @@
     width: 2.5em;
 }
 
+.pokemon-display{
+    width: 30em;
+}
+
+.pokemon-display-descripcion{
+    width: 70%;
+}
+
 
 .titulo{
     font-size: 1.5em;
@@ -23,7 +31,7 @@
 }
 
 .separador{
-    padding-bottom: 264px;
+    padding-bottom: 264px;  
 }
 
 .footer-header-color{
@@ -53,11 +61,6 @@ table{
 ;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Staatliches', cursive;
-}
 
 /* H1 */
 h1 {
@@ -86,10 +89,10 @@ body {
 }
 
 
-/* Registrar */
+/* Login */
 
 body.login{
-    background-image:url("../background.jpg")
+    background-image:url("/public/background_1.png")
 }
 
 .iniciosesion {
@@ -118,7 +121,7 @@ body.login{
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid #d87811;
+    border: 2px solid #dd2113;
     padding: 10px 10px;
     width: 250px;
     outline: none;
@@ -146,7 +149,7 @@ body.login{
 .box input[type="text"]:focus,
 .box input[type="password"]:focus {
     width: 300px;
-    border-color: #cc2ecc
+    border-color: #e9e9e9
 }
 
 .box input[type="submit"] {
@@ -174,4 +177,4 @@ body.login{
      color:rgb(255, 255, 255) ;
 }
 
-/* Fin Registrar */
+/* Fin Login */
