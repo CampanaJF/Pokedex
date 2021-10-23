@@ -5,23 +5,24 @@
         <div class="w3-center" style="margin-left: 30%; margin-right: 30%">
             <form action="/pokedex/agregar" method="post" enctype="multipart/form-data">
                 <label for="nombre" class="w3-margin-top w3-block w3-left-align">Nombre</label>
-                <input type="text" name="nombrePokemon" id="nombre" class="w3-input w3-border">
+                <input type="text" name="nombre" id="nombre" class="w3-input w3-border">
 
                 <label for="numero" class="w3-margin-top w3-block w3-left-align">Número</label>
                 <input type="number" name="numero" id="numero" class="w3-input w3-border">
 
                 <label for="tipo1" class="w3-margin-top w3-block w3-left-align">Tipo 1</label>
                 <select name="tipo1" id="tipo1" class="w3-select w3-border">
-                    {{# tipo}}
-                    <option value="{{id}}}">tipo</option>
-                    {{/ tipo}}
+                    {{# tipos}}
+                    <option value="{{id}}">{{tipo}}</option>
+                    {{/ tipos}}
                 </select>
 
                 <label for="tipo2" class="w3-margin-top w3-block w3-left-align">Tipo 2</label>
                 <select name="tipo2" id="tipo2" class="w3-select w3-border">
-                    {{# tipo}}
-                    <option value="{{id}}}">tipo</option>
-                    {{/ tipo}}
+                    <option value="">-</option>
+                    {{# tipos}}
+                    <option value="{{id}}">{{tipo}}</option>
+                    {{/ tipos}}
                 </select>
 
                 <label for="descripcion" class="w3-margin-top w3-block w3-left-align">Descripción</label>

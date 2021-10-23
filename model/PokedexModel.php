@@ -13,9 +13,9 @@ class PokedexModel {
                 . "LEFT JOIN tipo t2 on p.tipo2 = t2.id "
                 . "ORDER BY numero";
 
-        $respond = $this->database->query($query);
+        $response = $this->database->query($query);
 
-        $data["pokemons"] = $respond;
+        $data["pokemons"] = $response;
 
         return $data;
     }
@@ -28,15 +28,15 @@ class PokedexModel {
                 . "%' OR numero LIKE  '%" .$search. "%' OR tipo1 LIKE '%" .$search
                 . "%' OR tipo2 LIKE '%" .$search. "%' ORDER BY numero";
 
-        $respond = $this->database->query($query);
+        $response = $this->database->query($query);
 
         $data[] = [];
 
-        if (empty($respond)) {
+        if (empty($response)) {
             $data["error"] = true;
             $data = array_merge($data, $this->getPokemons());
         } else {
-            $data["pokemons"] = $respond;
+            $data["pokemons"] = $response;
         }
 
         return $data;
@@ -50,17 +50,31 @@ class PokedexModel {
                 . "ORDER BY numero";
 
 
-        $respond= $this->database->query($query);
+        $response = $this->database->query($query);
 
-        $data["pokemons"]= $respond;
+        $data["pokemons"]= $response;
 
         return $data;
     }
 
-    public function nuevo($nombre, $numero, $tipo, $tipo2, $descripcion, $imagen){
-       $query = "insert into pokemon (numero, nombre, tipo1, tipo2, descripcion, imagen)"
-                ."values('$numero', '$nombre', '$tipo', '$tipo2', '$descripcion', '$imagen')";
+    public function nuevo($nombre, $numero, $tipo, $tipo2, $descripcion, $imagen) {
+       $query = "INSERT INTO pokemon (numero, nombre, tipo1, tipo2, descripcion, imagen)"
+                ." VALUES($numero, '$nombre', $tipo, $tipo2, '$descripcion', '$imagen')";
 
        $this->database->execute($query);
+    }
+
+    public function getTiposData(): array|bool {
+        $query = "SELECT * FROM tipo";
+
+        $data["tipos"] = $this->database->query($query);
+
+        return $data;
+    }
+
+    public function checkTipoId($id): bool {
+        $query = "SELECT * FROM tipo WHERE id = '" .$id. "'";
+
+        return !empty($this->database->query($query));
     }
 }
