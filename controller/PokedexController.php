@@ -2,7 +2,7 @@
 
 class PokedexController{
 
-    private $printer;
+    private MustachePrinter $printer;
     private PokedexModel $model;
 
     public function __construct($printer, $model) {
@@ -27,36 +27,40 @@ class PokedexController{
     public function descripcion(){
         $id= $_GET["id"] ;
 
-        $data = $this->model->getPokemonById ($id);
+        $data = $this->model->getPokemonById($id);
 
-      echo $this->printer->render ("view/pokemonDescripcion.html", $data);
-
+        echo $this->printer->render ("view/pokemonDescripcion.html", $data);
     }
-    public function nuevo(){
 
+    public function nuevo() {
         echo $this->printer->render ("view/nuevoPokemon.html");
     }
 
     public function agregar(){
-
         $nombre= $_POST["nombrePokemon"] ;
         $numero= $_POST["numPokemon"];
-        $tipo= $_POST["tipo"];
-        $tipo2= $_POST["tipo2"];
+        $tipo= "acero.jpeg";$_POST["tipo"];
+        $tipo2= "acero.jpeg";$_POST["tipo2"];
         $descripcion=$_POST["descripcion"];
 
-        if ($_FILES ["imagen"]["error"] > 0){
+        $file = $_FILES["imagen"];
+        if (isset($file)) {
+            if ($file["error"] > 0) {
+                die("Error: " . $file["error"] . "<br>");
+            } else {
+                $info = pathinfo($file["name"]);
+                $name = $_POST["nombrePokemon"] ."." .$info["extension"];
 
-            echo "el archivo no se subio";
+                if (move_uploaded_file($file["tmp_name"], "public/img/" . $name)) {
+                    $this->model->nuevo($nombre, $numero, $tipo, $tipo2, $descripcion, $nombre);
 
-        } else {
-            move_uploaded_file($_FILES["imagen"]["tmp_name"], "/public/img/". $nombre . ".png");
+                    header("location: /pokedex/");
+                } else {
+                    die("Error al intentar guardar el archivo");
+                }
+
+            }
         }
-
-        $this->model->nuevo($nombre, $numero,$tipo,$tipo2,$descripcion,$nombre. ".png");
-
-        header("location:/pokedex");
-
     }
 
 }

@@ -7,19 +7,26 @@ class PokedexModel {
         $this->database = $database;
     }
 
-    public function getPokemons(){
-        $query = "SELECT nombre, tipo1, tipo2, numero FROM pokemon ORDER BY numero";
+    public function getPokemons(): array {
+        $query = "SELECT p.id, numero, nombre, t1.imagen as tipo1, t2.imagen as tipo2 FROM pokemon p "
+                . "JOIN tipo t1 ON p.tipo1 = t1.id "
+                . "LEFT JOIN tipo t2 on p.tipo2 = t2.id "
+                . "ORDER BY numero";
 
         $respond = $this->database->query($query);
+
         $data["pokemons"] = $respond;
 
         return $data;
     }
 
-    public function search($search) {
-        $query = "SELECT nombre, numero, tipo1, tipo2 FROM pokemon WHERE nombre LIKE '%" .$search.
-            "%' OR numero LIKE  '%" .$search. "%' OR tipo1 LIKE '%" .$search.
-            "%' OR tipo2 LIKE '%" .$search. "%' ORDER BY numero";
+    public function search($search): array {
+        $query = "SELECT p.id, numero, nombre, t1.imagen as tipo1, t2.imagen as tipo2 FROM pokemon p"
+                . " JOIN tipo t1 ON p.tipo1 = t1.id"
+                . " LEFT JOIN tipo t2 on p.tipo2 = t2.id"
+                . " WHERE nombre LIKE '%" .$search
+                . "%' OR numero LIKE  '%" .$search. "%' OR tipo1 LIKE '%" .$search
+                . "%' OR tipo2 LIKE '%" .$search. "%' ORDER BY numero";
 
         $respond = $this->database->query($query);
 
@@ -35,27 +42,25 @@ class PokedexModel {
         return $data;
     }
 
-    public function getPokemonById($id){
-    $query = " SELECT  nombre, numero, tipo1, tipo2, descripcion, img  FROM pokemon WHERE id= ". $id;
-
-    $respond= $this->database->query($query);
-
-    $data["pokemons"]= $respond;
-
-    return $data;
+    public function getPokemonById($id): array {
+        $query = "SELECT numero, nombre, t1.imagen as tipo1, t2.imagen as tipo2, p.imagen, descripcion FROM pokemon p "
+                . "JOIN tipo t1 ON p.tipo1 = t1.id "
+                . "LEFT JOIN tipo t2 on p.tipo2 = t2.id "
+                . "WHERE p.id = '" .$id. "' "
+                . "ORDER BY numero";
 
 
+        $respond= $this->database->query($query);
+
+        $data["pokemons"]= $respond;
+
+        return $data;
     }
 
-    public function nuevo($nombre, $numero,$tipo,$tipo2,$descripcion,$imagen){
-       $query = "INSERT INTO pokemon(numero,nombre,tipo1,tipo2,descripcion, img) 
-            VALUES ($numero, '$nombre', '$tipo','$tipo2','$descripcion','$imagen')";
+    public function nuevo($nombre, $numero, $tipo, $tipo2, $descripcion, $imagen){
+       $query = "insert into pokemon (numero, nombre, tipo1, tipo2, descripcion, imagen)"
+                ."values('$numero', '$nombre', '$tipo', '$tipo2', '$descripcion', '$imagen')";
 
-
-
-        return $this->database->execute($query);
-
+       $this->database->execute($query);
     }
-
-
 }

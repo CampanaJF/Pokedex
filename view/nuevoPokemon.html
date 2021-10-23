@@ -1,75 +1,40 @@
 
 {{> header}}
 <main>
-
-    <div class="contenido-principal w3-padding-64">
-
-
-
+    <div class="w3-container w3-white">
+        <div class="w3-center" style="margin-left: 30%; margin-right: 30%">
             <form action="/pokedex/agregar" method="post" enctype="multipart/form-data">
+                <label for="nombre" class="w3-margin-top w3-block w3-left-align">Nombre</label>
+                <input type="text" name="nombrePokemon" id="nombre" class="w3-input w3-border">
 
-                Nombre: <input type="text" name="nombrePokemon"> <br>
+                <label for="numero" class="w3-margin-top w3-block w3-left-align">Número</label>
+                <input type="number" name="numero" id="numero" class="w3-input w3-border">
 
-                numeroPokemon: <input type="text" name="numPokemon"> <br>
+                <label for="tipo1" class="w3-margin-top w3-block w3-left-align">Tipo 1</label>
+                <select name="tipo1" id="tipo1" class="w3-select w3-border">
+                    {{# tipo}}
+                    <option value="{{id}}}">tipo</option>
+                    {{/ tipo}}
+                </select>
 
-                tipo 1:
-                <select name="tipo" id="">
+                <label for="tipo2" class="w3-margin-top w3-block w3-left-align">Tipo 2</label>
+                <select name="tipo2" id="tipo2" class="w3-select w3-border">
+                    {{# tipo}}
+                    <option value="{{id}}}">tipo</option>
+                    {{/ tipo}}
+                </select>
 
-                <option value="tipo_acero">acero</option>
-                <option value="tipo_agua">agua</option>
-                <option value="tipo_bicho">bicho</option>
-                <option value="tipo_dragon">dragon</option>
-                <option value="tipo_electrico">electrico</option>
-                <option value="tipo_fantasma">fantasma</option>
-                <option value="tipo_fuego">fuego</option>
-                <option value="tipo_hada">hada</option>
-                <option value="tipo_hielo">hielo</option>
-                <option value="tipo_lucha">lucha</option>
-                <option value="tipo_normal">normal</option>
-                <option value="tipo_planta">planta</option>
-                <option value="tipo_psiquico">psiquico</option>
-                <option value="tipo_roca">roca</option>
-                <option value="tipo_tierra">tierra</option>
-                <option value="tipo_veneno">veneno</option>
-                <option value="tipo_volador">volador</option>
-                        </select>
-                <br>
-                tipo2:
-                <select name="tipo2" id="">
+                <label for="descripcion" class="w3-margin-top w3-block w3-left-align">Descripción</label>
+                <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="w3-input w3-border"></textarea>
 
-                    <option value="tipo_acero">acero</option>
-                    <option value="tipo_agua">agua</option>
-                    <option value="tipo_bicho">bicho</option>
-                    <option value="tipo_dragon">dragon</option>
-                    <option value="tipo_electrico">electrico</option>
-                    <option value="tipo_fantasma">fantasma</option>
-                    <option value="tipo_fuego">fuego</option>
-                    <option value="tipo_hada">hada</option>
-                    <option value="tipo_hielo">hielo</option>
-                    <option value="tipo_lucha">lucha</option>
-                    <option value="tipo_normal">normal</option>
-                    <option value="tipo_planta">planta</option>
-                    <option value="tipo_psiquico">psiquico</option>
-                    <option value="tipo_roca">roca</option>
-                    <option value="tipo_tierra">tierra</option>
-                    <option value="tipo_veneno">veneno</option>
-                    <option value="tipo_volador">volador</option>
-            </select>
+                <label for="imagen" class="w3-margin-top w3-block w3-left-align">Selecciona una imagen</label>
+                <input type="file" name="imagen" id="imagen" class="w3-input w3-border w3-margin-bottom">
 
-
-                <p>describe tu pokemon:</p>
-
-                <textarea name="descripcion" id="" cols="30" rows="10"></textarea>
-                <br>
-                elige tu imagen :
-                <input type="file" name="imagen"> <br>
-
-                <input type="submit" class="w3-button w3-orange" value="enviar">
-
-
+                <input type="submit" class="w3-block w3-button w3-green w3-round w3-margin-top w3-margin-bottom" value="Crear">
             </form>
 
-
+        </div>
+    </div>
 </main>
 
 {{> footer}}

@@ -21,21 +21,21 @@
         {{/ error}}
 
         <div class="w3-container">
-            <h2>Lista de Pokemones</h2>
+            <h2 class="w3-text-white w3-black w3-padding">Lista de Pokemones</h2>
 
             <table class="w3-table">
                 <tr>
-                    <th>numero</th>
-                    <th>nombre</th>
-                    <th>tipo1</th>
-                    <th>tipo2</th>
+                    <th>Número</th>
+                    <th>Nombre</th>
+                    <th>Tipo 1</th>
+                    <th>Tipo 2</th>
                 </tr>
                 {{# pokemons}}
                 <tr>
                     <td>{{numero}}</td>
                     <td><a href="/pokedex/descripcion?id={{id}}">{{nombre}}</a></td>
-                    <td><img src="/public/tipos/{{tipo1}}.jpeg" alt="{{tipo1}}"></td>
-                    <td><img src="/public/tipos/{{tipo2}}.jpeg" alt="{{tipo2}}"></td>
+                    <td><img src="/public/tipos/{{tipo1}}" alt="{{tipo1}}"></td>
+                    <td><img src="/public/tipos/{{tipo2}}" alt="{{tipo2}}"></td>
                 </tr>
                 {{/ pokemons}}
             </table>
