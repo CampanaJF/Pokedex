@@ -3,24 +3,15 @@ class Configuration{
 
     private $config;
 
-    public  function createPresentacionesController(){
-        require_once("controller/PresentacionesController.php");
-        return new PresentacionesController( $this->createPresentacionesModel() , $this->createPrinter());
+    private function createLoginModel(){
+        require_once "model/LoginModel.php";
+        $database = $this->getDatabase();
+        return new LoginModel($database);
     }
 
-    public  function createCancionesController(){
-        require_once("controller/CancionesController.php");
-        return new CancionesController( $this->createCancionesModel(), $this->getLogger() , $this->createPrinter());
-    }
-
-    public function createQuieroSerParteController(){
-        require_once("controller/QuieroSerParteController.php");
-        return new QuieroSerParteController( $this->createPrinter());
-    }
-
-    public function createPokedexController() {
-        require_once "controller/PokedexController.php";
-        return new PokedexController($this->createPrinter(), $this->createPokedexModel());
+    public function createLoginController(){
+        require_once "controller/LoginController.php";
+        return new LoginController($this->createPrinter(),$this->createLoginModel(), );
     }
 
     private function createPokedexModel() {
@@ -28,17 +19,11 @@ class Configuration{
         return new PokedexModel($this->getDatabase());
     }
 
-    private  function createCancionesModel(){
-        require_once("model/CancionesModel.php");
-        $database = $this->getDatabase();
-        return new CancionesModel($database);
+    public function createPokedexController() {
+        require_once "controller/PokedexController.php";
+        return new PokedexController($this->createPrinter(), $this->createPokedexModel());
     }
 
-    private  function createPresentacionesModel(){
-        require_once("model/PresentacionesModel.php");
-        $database = $this->getDatabase();
-        return new PresentacionesModel($database);
-    }
 
     private  function getDatabase(){
         require_once("helpers/MyDatabase.php");

@@ -1,38 +1,56 @@
 {{> header}}
 
+<title>Pokedex Elite</title>
+
 <div class="contenido-principal w3-padding-64">
 
     <div class="w3-container w3-content w3-center w3-padding-64">
 
         <h2 class="w3-wide w3-tag">Buscar</h2>
-        <form>
-            <input type="search" placeholder="Pikachu">
+        <form action="/pokemon/search" method="post">
+            <input type="search" name="search" placeholder="Pikachu">
             <input type="submit" value="Buscar">
         </form>
         <p class=" w3-tag"><i>Catch them all!</i></p>
 
+        {{# error}}
+            <div class="w3-panel w3-red">
+                <h3>Error!</h3>
+                <p>no se encontro ningun pokemon</p>
+            </div>
+        {{/ error}}
+
         <div class="w3-container">
-            <h2>Lista de Pokemones</h2>
+            <h2 class="w3-text-white w3-black w3-padding w3-tag">Lista de Pokemones</h2>
 
             <table class="w3-table">
                 <tr>
-                    <th>numero</th>
-                    <th>nombre</th>
-                    <th>tipo1</th>
-                    <th>tipo2</th>
+                    <th>Número</th>
+                    <th>Nombre</th>
+                    <th>Tipo 1</th>
+                    <th>Tipo 2</th>
                 </tr>
                 {{# pokemons}}
                 <tr>
                     <td>{{numero}}</td>
-                    <td>{{nombre}}</td>
+                    <td><a href="/pokedex/descripcion?id={{id}}">{{nombre}}</a></td>
                     <td><img src="/public/tipos/{{tipo1}}" alt="{{tipo1}}"></td>
                     <td><img src="/public/tipos/{{tipo2}}" alt="{{tipo2}}"></td>
                 </tr>
                 {{/ pokemons}}
             </table>
         </div>
+        <br>
 
-        <div class="separador" ></div>
+        {{#logged}}
+        <div class="w3-container">
+            <a href="/pokedex/nuevo" class="w3-button w3-red">Nuevo pokemon</a>
+        </div>
+        {{/logged}}
+
+        <div class="separador" >
+
+        </div>
 
     </div>
 
