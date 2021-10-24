@@ -12,7 +12,11 @@ class LoginController {
     }
 
     public function show() {
+       /* if (isset($_SESSION['role'])) {
+            header("Location: /pokedexView"); } ---Descomentar cuando se arregle login/logout----
+        */
         echo $this->printer->render( "view/loginView.html");
+        
     }
 
     public function login() {
@@ -25,13 +29,15 @@ class LoginController {
             $hash = $result[0]["hash"];
 
             if ($hash == null) {
-                $_SESSION['role']=1;
+                $_SESSION['role']=$result;
                 header("Location: /pokedexView");
             } 
         } else {
             header("Location: /login");
         }
     }
+
+    
 }
 
 ?>

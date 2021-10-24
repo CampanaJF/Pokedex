@@ -9,7 +9,7 @@ class LoginModel {
     }
 
     public function login($nombre, $contraseña) {
-        $query = "SELECT * FROM usuario WHERE nombre = ? AND contraseña = ?";
+        $query = "SELECT esAdmin FROM usuario WHERE nombre = ? AND contraseña = ?";
         $params = array($nombre, $contraseña);
 
         return $this->database->queryParams($params, $query);

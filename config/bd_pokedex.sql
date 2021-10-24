@@ -83,3 +83,5 @@ values(149,'Dragonite', 4, 17,
 insert into pokemon (numero,nombre,tipo1,tipo2,descripcion)
 values(103,'Exeggutor', 12, 13,
        'Exeggutor es un Pokémon de tipo planta/psíquico introducido en la primera generación. Es la forma habitual del Exeggutor de Alola. En ambas variantes, es la evolución de Exeggcute.');
+       
+

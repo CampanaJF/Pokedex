@@ -80,11 +80,14 @@ class PokedexModel {
 
     public function loginCheck(){
         
-        if (isset($_SESSION['role'])&& $_SESSION['role']==1) {
-            $data["logged"] = true;  
+        if (isset($_SESSION['role'])) {
+            $data["logged"] = true;
+                
         } else {
             $data["notLogged"] = true;
+            
         }
         return $data;
+
     }
 }

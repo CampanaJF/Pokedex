@@ -12,7 +12,8 @@ class PokedexController{
 
     public function show() {
         $data = $this->model->getPokemons();
-        $data = array_merge($data,$this->model->loginCheck());
+        $data= array_merge($data,$this->model->loginCheck());
+
 
         echo $this->printer->render( "view/pokedexView.html", $data);
     }
@@ -59,7 +60,7 @@ class PokedexController{
 
         $tipo2 = $_POST["tipo2"];
 
-        if (!isset($tipo2)) {
+        if (!isset($tipo2)||$tipo2==$tipo1) {
             die("El tipo 2 no es válido");
         } else {
             if (empty($tipo2)) {
