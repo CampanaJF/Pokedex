@@ -12,9 +12,9 @@ class LoginController {
     }
 
     public function show() {
-       /* if (isset($_SESSION['role'])) {
-            header("Location: /pokedexView"); } ---Descomentar cuando se arregle login/logout----
-        */
+        if (isset($_SESSION['role'])) {
+            header("Location: /pokedexView"); }
+        
         echo $this->printer->render( "view/loginView.html");
         
     }

@@ -11,9 +11,16 @@ class PokedexController{
     }
 
     public function show() {
-        $data = $this->model->getPokemons();
-        $data= array_merge($data,$this->model->loginCheck());
 
+        if(isset($_POST["logout"])){
+            session_unset();
+        }
+        $data  = $this->model->getPokemons();
+    //    $data ["logged"]  = $_SESSION["role"]!=null;
+    //    $data ["notLogged"]  = $_SESSION["role"]==null;
+        
+
+       $data  = array_merge($data,$this->model->loginCheck());
 
         echo $this->printer->render( "view/pokedexView.html", $data);
     }
