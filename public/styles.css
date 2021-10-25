@@ -31,7 +31,7 @@
 }
 
 .separador{
-    padding-bottom: 264px;  
+    padding-bottom: 264px;
 }
 
 .footer-header-color{
@@ -86,6 +86,10 @@ body {
 .nav-link:hover {
     text-decoration: underline;
     color: rgba(230, 230, 230, 0.856);
+}
+
+.parrafo{
+
 }
 
 
