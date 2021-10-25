@@ -1,8 +1,9 @@
 {{> header}}
 
+{{# pokemon}}
+<title>{{nombre}}</title>
 <main class="w3-container w3-sand">
-    {{#pokemons}}
-    <div class="w3-container w3-sand w3-cell pokemon-display-descripcion"> 
+    <div class="w3-container w3-sand w3-cell pokemon-display-descripcion">
         <h2>{{nombre}}</h2>
         <p class="w3-margin-top ">{{descripcion}}</p>
     </div>
@@ -17,11 +18,7 @@
             </div>
         </div>
     </div>
-    {{/pokemons}}
-
 </main>
-
-
-
+{{/ pokemon}}
 
 {{> footer}}

@@ -24,7 +24,6 @@ class Configuration{
         return new PokedexController($this->createPrinter(), $this->createPokedexModel());
     }
 
-
     private  function getDatabase(){
         require_once("helpers/MyDatabase.php");
         $config = $this->getConfig();

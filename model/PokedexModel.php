@@ -43,7 +43,7 @@ class PokedexModel {
     }
 
     public function getPokemonById($id): array {
-        $query = "SELECT numero, nombre, t1.imagen as tipo1, t2.imagen as tipo2, p.imagen, descripcion FROM pokemon p "
+        $query = "SELECT p.id, numero, nombre, t1.imagen as tipo1, t2.imagen as tipo2, p.imagen, descripcion FROM pokemon p "
                 . "JOIN tipo t1 ON p.tipo1 = t1.id "
                 . "LEFT JOIN tipo t2 on p.tipo2 = t2.id "
                 . "WHERE p.id = '" .$id. "' "
@@ -52,7 +52,7 @@ class PokedexModel {
 
         $response = $this->database->query($query);
 
-        $data["pokemons"]= $response;
+        $data["pokemon"]= $response;
 
         return $data;
     }
@@ -78,7 +78,7 @@ class PokedexModel {
         return !empty($this->database->query($query));
     }
 
-    public function loginCheck(){
+    public function loginCheck() {
 
         if(isset($_GET["logout"])){
             session_unset();
@@ -95,5 +95,22 @@ class PokedexModel {
         }
         return $data;
 
+    }
+
+    public function editar($id, $nombre, $numero, $tipo1, $tipo2, $descripcion, $imagen = "") {
+        if (!empty($imagen)) {
+            $query = "UPDATE pokemon SET numero = $numero, nombre='$nombre' ,tipo1= $tipo1, tipo2= $tipo2,descripcion='$descripcion', imagen = '$imagen' WHERE id = $id";
+        } else {
+            $query = "UPDATE pokemon SET numero = $numero, nombre='$nombre' ,tipo1= $tipo1, tipo2= $tipo2,descripcion='$descripcion' WHERE id = $id";
+        }
+
+        $this->database->execute($query);
+
+        header("location: /");
+    }
+
+    public function eliminar($id) {
+        $query = "DELETE FROM pokemon WHERE id = $id";
+        $this->database->execute($query);
     }
 }

@@ -29,6 +29,8 @@
                     <th>Nombre</th>
                     <th>Tipo 1</th>
                     <th>Tipo 2</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 {{# pokemons}}
                 <tr>
@@ -36,6 +38,10 @@
                     <td><a href="/pokedex/descripcion?id={{id}}">{{nombre}}</a></td>
                     <td><img src="/public/tipos/{{tipo1}}" alt="{{tipo1}}"></td>
                     <td><img src="/public/tipos/{{tipo2}}" alt="{{tipo2}}"></td>
+                    {{#logged}}
+                    <td><a href="/pokedex/editarPokemon?id={{id}}">Editar</a></td>
+                    <td><a href="/pokedex/eliminarPokemon?id={{id}}">Eliminar</a></td>
+                    {{/logged}}
                 </tr>
                 {{/ pokemons}}
             </table>

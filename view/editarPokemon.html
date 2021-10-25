@@ -1,14 +1,16 @@
 {{> header}}
-<title>Nuevo</title>
+<title>Editar</title>
 <main>
     <div class="w3-container w3-white">
         <div class="w3-center" style="margin-left: 30%; margin-right: 30%">
-            <form action="/pokedex/agregar" method="post" enctype="multipart/form-data">
+            <form action="/pokedex/editar" method="post" enctype="multipart/form-data">
+                {{# pokemon}}
+                <input type="text" name="id" id="id" value="{{id}}" hidden>
                 <label for="nombre" class="w3-margin-top w3-block w3-left-align">Nombre</label>
-                <input type="text" name="nombre" id="nombre" class="w3-input w3-border">
+                <input type="text" name="nombre" id="nombre" class="w3-input w3-border" value="{{nombre}}">
 
                 <label for="numero" class="w3-margin-top w3-block w3-left-align">Número</label>
-                <input type="number" name="numero" id="numero" class="w3-input w3-border">
+                <input type="number" name="numero" id="numero" class="w3-input w3-border" value="{{numero}}">
 
                 <label for="tipo1" class="w3-margin-top w3-block w3-left-align">Tipo 1</label>
                 <select name="tipo1" id="tipo1" class="w3-select w3-border">
@@ -26,12 +28,13 @@
                 </select>
 
                 <label for="descripcion" class="w3-margin-top w3-block w3-left-align">Descripción</label>
-                <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="w3-input w3-border"></textarea>
+                <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="w3-input w3-border">{{descripcion}}</textarea>
 
                 <label for="imagen" class="w3-margin-top w3-block w3-left-align">Selecciona una imagen</label>
                 <input type="file" name="imagen" id="imagen" class="w3-input w3-border w3-margin-bottom">
+                {{/ pokemon}}
 
-                <input type="submit" class="w3-block w3-button w3-green w3-round w3-margin-top w3-margin-bottom" value="Crear">
+                <input type="submit" class="w3-block w3-button w3-green w3-round w3-margin-top w3-margin-bottom" value="Editar">
             </form>
 
         </div>
