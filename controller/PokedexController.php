@@ -110,7 +110,23 @@ class PokedexController{
         $id = $_GET["id"];
 
         $data = $this->model->getPokemonById($id);
-        $data += $this->model->getTiposData();
+
+        $pokemon = $data["pokemon"];
+
+        if (empty($pokemon)) {
+            die("Algo salió mal");
+        }
+
+        $data["tipos1"] = $this->model->getTiposDataOrderByPokemonId($pokemon["tipo1Id"]);
+
+        if ($pokemon["tipo2Id"] == NULL) {
+            $data["tipo2-null"] = true;
+            $tipo2Id = "NULL";
+        } else {
+            $tipo2Id = $pokemon["tipo2Id"];
+        }
+
+        $data["tipos2"] = $this->model->getTiposDataOrderByPokemonId($tipo2Id);
 
         echo $this->printer->render ("view/editarPokemon.html", $data);
     }

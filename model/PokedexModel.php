@@ -42,17 +42,28 @@ class PokedexModel {
         return $data;
     }
 
+    public function getPokemonById2($id): array {
+        $query = "SELECT * FROM pokemon "
+            . "WHERE id = $id";
+
+
+        return $this->database->query($query)[0];
+    }
+
     public function getPokemonById($id): array {
-        $query = "SELECT p.id, numero, nombre, t1.imagen as tipo1, t2.imagen as tipo2, p.imagen, descripcion FROM pokemon p "
+        $query = "SELECT p.id, numero, nombre, t1.id as tipo1Id, t1.imagen as tipo1, t2.id as tipo2Id, t2.imagen as tipo2, p.imagen, descripcion FROM pokemon p "
                 . "JOIN tipo t1 ON p.tipo1 = t1.id "
                 . "LEFT JOIN tipo t2 on p.tipo2 = t2.id "
                 . "WHERE p.id = '" .$id. "' "
                 . "ORDER BY numero";
 
-
         $response = $this->database->query($query);
 
-        $data["pokemon"]= $response;
+        if (!empty($response)){
+            $data["pokemon"] = $response[0];
+        } else {
+            $data["pokemon"] = [];
+        }
 
         return $data;
     }
@@ -67,9 +78,7 @@ class PokedexModel {
     public function getTiposData(): array|bool {
         $query = "SELECT * FROM tipo";
 
-        $data["tipos"] = $this->database->query($query);
-
-        return $data;
+        return $this->database->query($query);
     }
 
     public function checkTipoId($id): bool {
@@ -112,5 +121,11 @@ class PokedexModel {
     public function eliminar($id) {
         $query = "DELETE FROM pokemon WHERE id = $id";
         $this->database->execute($query);
+    }
+
+    public function getTiposDataOrderByPokemonId($tipoId): array {
+        $query = "SELECT * FROM tipo ORDER BY CASE WHEN id = $tipoId then id END DESC";
+
+        return $this->database->query($query);
     }
 }
