@@ -94,11 +94,9 @@ class PokedexModel {
         }
 
         if (isset($_SESSION['role'])) {
-         //   $data["logged"] = true;
             $data["logged"]= $_SESSION["role"];
                 
         }   else {
-          //  $data["notLogged"] = true;
             $data["notLogged"]= true;
             
         }
@@ -107,11 +105,13 @@ class PokedexModel {
     }
 
     public function editar($id, $nombre, $numero, $tipo1, $tipo2, $descripcion, $imagen = "") {
+        $query = "UPDATE pokemon SET numero = $numero, nombre='$nombre' ,tipo1= $tipo1, tipo2= $tipo2,descripcion='$descripcion'";
+
         if (!empty($imagen)) {
-            $query = "UPDATE pokemon SET numero = $numero, nombre='$nombre' ,tipo1= $tipo1, tipo2= $tipo2,descripcion='$descripcion', imagen = '$imagen' WHERE id = $id";
-        } else {
-            $query = "UPDATE pokemon SET numero = $numero, nombre='$nombre' ,tipo1= $tipo1, tipo2= $tipo2,descripcion='$descripcion' WHERE id = $id";
+            $query .= ", imagen = '$imagen'";
         }
+
+        $query .= " WHERE id = $id";
 
         $this->database->execute($query);
 
