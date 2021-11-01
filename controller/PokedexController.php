@@ -40,7 +40,7 @@ class PokedexController{
     }
 
     public function nuevo() {
-        $data = $this->model->getTiposData();
+        $data["tipos"] = $this->model->getTiposData();
         echo $this->printer->render ("view/nuevoPokemon.html", $data);
     }
 

@@ -13,13 +13,14 @@
                 <label for="tipo1" class="w3-margin-top w3-block w3-left-align">Tipo 1</label>
                 <select name="tipo1" id="tipo1" class="w3-select w3-border">
                     {{# tipos}}
+                    {{# imagen}}
                     <option value="{{id}}">{{tipo}}</option>
+                    {{/ imagen}}
                     {{/ tipos}}
                 </select>
 
                 <label for="tipo2" class="w3-margin-top w3-block w3-left-align">Tipo 2</label>
                 <select name="tipo2" id="tipo2" class="w3-select w3-border">
-                    <option value="">-</option>
                     {{# tipos}}
                     <option value="{{id}}">{{tipo}}</option>
                     {{/ tipos}}
