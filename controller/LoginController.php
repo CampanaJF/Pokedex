@@ -25,16 +25,17 @@ class LoginController {
 
         $result = $this->model->login($nombre, $contraseña);
 
-        if (!empty($result)) {
-            $hash = $result[0]["hash"];
-
-            if ($hash == null) {
-                $_SESSION['role']=$result;
-                header("Location: /pokedexView");
-            } 
-        } else {
+        
+        if (empty($result)) {
             header("Location: /login");
+            die();
         }
+
+        $result = $result[0];
+ 
+        $_SESSION['rol']=$result["esAdmin"];
+        header("Location: /pokedexView");
+             
     }
 
     

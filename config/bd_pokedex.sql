@@ -69,20 +69,27 @@ insert into pokemon (numero,nombre,tipo1,tipo2,descripcion,imagen)
               values(093,'Haunter', 7, 17,
               'Haunter es un Pokémon de tipo fantasma/veneno introducido en la primera generación. Es la evolución de Gastly. ','Haunter.jpeg');
 
-insert into pokemon (numero,nombre,tipo1,tipo2,descripcion)
+insert into pokemon (numero,nombre,tipo1,tipo2,descripcion,imagen)
 values(006,'Charizard', 8, 18,
-       'Charizard es un Pokémon de tipo fuego/volador, introducido en la primera generación. Es la evolución de Charmeleon y, a partir de la sexta generación, puede megaevolucionar en Mega-Charizard X o en Mega-Charizard Y. En la Octava generación puede realizar Gigamax y transformarse en Charizard Gigamax.');
+       'Charizard es un Pokémon de tipo fuego/volador,
+       introducido en la primera generación. Es la evolución de Charmeleon y,
+       a partir de la sexta generación, puede megaevolucionar en Mega-Charizard X o en Mega-Charizard Y.
+       En la Octava generación puede realizar Gigamax y transformarse en Charizard Gigamax.','Charizard.jpeg');
 
-insert into pokemon (numero,nombre,tipo1,tipo2,descripcion)
+insert into pokemon (numero,nombre,tipo1,tipo2,descripcion,imagen)
 values(018,'Pidgeot', 12, 18,
-       'Pidgeot es un Pokémon del tipo normal/volador introducido en la primera generación. Es la forma evolucionada de Pidgeotto. A partir de Pokémon Rubí Omega y Pokémon Zafiro Alfa puede megaevolucionar en Mega-Pidgeot.');
+       'Pidgeot es un Pokémon del tipo normal/volador introducido en la primera generación.
+       Es la forma evolucionada de Pidgeotto.
+       A partir de Pokémon Rubí Omega y Pokémon Zafiro Alfa puede megaevolucionar en Mega-Pidgeot.','Pidgeot.jpeg');
 
-insert into pokemon (numero,nombre,tipo1,tipo2,descripcion)
+insert into pokemon (numero,nombre,tipo1,tipo2,descripcion,imagen)
 values(149,'Dragonite', 5, 18,
-       'Dragonite es un Pokémon de tipo dragón/volador introducido en la primera generación. Es la evolución de Dragonair.');
+       'Dragonite es un Pokémon de tipo dragón/volador introducido en la primera generación.
+       Es la evolución de Dragonair.','Dragonite.jpeg');
 
-insert into pokemon (numero,nombre,tipo1,tipo2,descripcion)
+insert into pokemon (numero,nombre,tipo1,tipo2,descripcion,imagen)
 values(103,'Exeggutor', 13, 14,
-       'Exeggutor es un Pokémon de tipo planta/psíquico introducido en la primera generación. Es la forma habitual del Exeggutor de Alola. En ambas variantes, es la evolución de Exeggcute.');
+       'Exeggutor es un Pokémon de tipo planta/psíquico introducido en la primera generación.
+       Es la forma habitual del Exeggutor de Alola. En ambas variantes, es la evolución de Exeggcute.','Exeggutor.jpeg');
        
 

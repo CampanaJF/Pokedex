@@ -87,23 +87,6 @@ class PokedexModel {
         return !empty($this->database->query($query));
     }
 
-    public function loginCheck() {
-
-        if(isset($_GET["logout"])){
-            session_unset();
-        }
-
-        if (isset($_SESSION['role'])) {
-            $data["logged"]= $_SESSION["role"];
-                
-        }   else {
-            $data["notLogged"]= true;
-            
-        }
-        return $data;
-
-    }
-
     public function editar($id, $nombre, $numero, $tipo1, $tipo2, $descripcion, $imagen = "") {
         $query = "UPDATE pokemon SET numero = $numero, nombre='$nombre' ,tipo1= $tipo1, tipo2= $tipo2,descripcion='$descripcion'";
 

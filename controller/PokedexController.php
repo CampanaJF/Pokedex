@@ -10,14 +10,8 @@ class PokedexController{
         $this->model = $model;
     }
 
-    public function show() {
-        if(isset($_POST["logout"])){
-            session_unset();
-        }
-
+    public function show() {  
         $data  = $this->model->getPokemons();
-
-       $data  = array_merge($data,$this->model->loginCheck());
 
         echo $this->printer->render( "view/pokedexView.html", $data);
     }
